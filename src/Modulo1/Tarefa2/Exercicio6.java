@@ -6,7 +6,7 @@ class Exercicio6 {
     public static void main(String[] args) {
         Scanner sn = new Scanner(System.in);
 
-        System.out.print("Escreva uma palavra: ");
+        System.out.println("Escreva uma palavra: ");
         String palavra = sn.nextLine();
         StringBuilder nova_palavra = new StringBuilder();
 

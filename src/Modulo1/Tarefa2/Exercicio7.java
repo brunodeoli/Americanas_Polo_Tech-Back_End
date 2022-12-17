@@ -19,9 +19,9 @@ class Exercicio7 {
         int media_idade = 0;
 
         for(int i=0; i<TAM; i++){
-            System.out.printf("Escreva %do nome: ",i+1);
+            System.out.printf("Escreva %do nome: \n",i+1);
             nomes[i] = sn.next();
-            System.out.printf("Escreva idade de %s: ",nomes[i]);
+            System.out.printf("Escreva idade de %s: \n",nomes[i]);
             idades[i] = sn.nextInt();
         }
 
