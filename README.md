@@ -1,6 +1,8 @@
 # Americanas Polo Tech | Back End
 Repositório referente ao curso Back-End Java by Ada & Americanas SA
 
+## Aprendizados
+
 * Introdução lógica de programação
 * Variáveis e tipos
 * Operadores
