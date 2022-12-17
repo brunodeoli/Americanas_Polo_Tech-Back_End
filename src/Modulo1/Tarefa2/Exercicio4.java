@@ -12,7 +12,7 @@ class Exercicio4 {
         int media = 0;
 
         for(int i=0; i<numeros.length; i++){
-            System.out.printf("Escreva %do numero: ",i+1);
+            System.out.printf("Escreva %do numero: \n",i+1);
             numeros[i] = sn.nextInt();
         }
 

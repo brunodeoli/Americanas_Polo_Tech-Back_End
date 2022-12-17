@@ -6,7 +6,7 @@ class Exercicio2 {
     public static void main(String[] args) {
         Scanner sn = new Scanner(System.in);
 
-        System.out.print("Escreva uma palavra para ser invertida: ");
+        System.out.println("Escreva uma palavra para ser invertida: ");
         String palavra = sn.nextLine();
         StringBuilder palavra_inversa = new StringBuilder();
 

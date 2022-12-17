@@ -10,7 +10,7 @@ class Exercicio1 {
         String[] carrinho_de_compras = new String[5];
 
         for(int i=0; i<carrinho_de_compras.length; i++){
-            System.out.print("Escreva o nome de uma fruta: ");
+            System.out.println("Escreva o nome de uma fruta: ");
             carrinho_de_compras[i] = sn.nextLine();
         }
 

@@ -10,7 +10,7 @@ class Exercicio5 {
         String maior_nome = "";
 
         for(int i=0; i<lista_de_nomes.length; i++){
-            System.out.printf("Escreva o %do nome: ", i+1);
+            System.out.printf("Escreva o %do nome: \n", i+1);
             lista_de_nomes[i] = sn.nextLine();
         }
 

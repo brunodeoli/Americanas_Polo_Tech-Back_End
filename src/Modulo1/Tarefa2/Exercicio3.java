@@ -9,7 +9,7 @@ class Exercicio3 {
         int[] numeros = new int[5];
 
         for(int i=0; i<numeros.length; i++){
-            System.out.printf("Escreva %do numero: ",i+1);
+            System.out.printf("Escreva %do numero: \n",i+1);
             numeros[i] = sn.nextInt();
         }
 

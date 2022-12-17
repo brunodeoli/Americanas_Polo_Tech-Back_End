@@ -12,7 +12,7 @@ class Exercicio8 {
         Pessoa[] pessoa = new Pessoa[5];
 
         for(int i=0; i<pessoa.length; i++){
-            System.out.printf("%d Escreva nome, altura (m) e peso (kg) (separados por espaço): ",i+1);
+            System.out.printf("%d Escreva nome, altura (m) e peso (kg) (separados por espaço): \n",i+1);
             pessoa[i] = new Pessoa(sn.next(), sn.nextFloat(), sn.nextFloat());
         }
 
