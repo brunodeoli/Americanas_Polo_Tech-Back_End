@@ -11,7 +11,7 @@ public class JogoDaVelha {
         int coluna = 0;
 
         // jogo em aberto enquanto não tiver vencedor ou velha
-        while(!jogo.verificaVencedor() || !jogo.verificaVelha()){
+        while(!jogo.verificaVencedor() && !jogo.verificaVelha()){
             if(jogo.rodada%2==0){
                 System.out.println("-> Jogador 1, escolha uma casa para marcar com 'O':");
                 linha = sn.nextInt();
@@ -52,6 +52,27 @@ class Jogo{
     }
 
     public boolean verificaVencedor(){
+        for (int i = 0; i < this.tabuleiro.length; i++) {
+            // verifica linhas
+            if(this.tabuleiro[i][0] != null && this.tabuleiro[i][1] != null && this.tabuleiro[i][2] != null){
+                char marcacao = this.tabuleiro[0][i];
+                if ((marcacao == this.tabuleiro[1][i]) && (marcacao == this.tabuleiro[2][i])) {
+                    int jogador = marcacao == 'O' ? 1 : 2;
+                    System.out.println("JOGADOR " + jogador + " VENCEU!");
+                    return true;
+                }
+            }
+            // verifica colunas
+            if(this.tabuleiro[0][i] != null && this.tabuleiro[1][i] != null && this.tabuleiro[2][i] != null){
+                char marcacao = this.tabuleiro[0][i];
+                if ((marcacao == this.tabuleiro[1][i]) && (marcacao == this.tabuleiro[2][i])) {
+                    int jogador = marcacao == 'O' ? 1 : 2;
+                    System.out.println("JOGADOR " + jogador + " VENCEU!");
+                    return true;
+                }
+            }
+            //verifica diagonal
+        }
         return false;
     }
 
