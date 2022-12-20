@@ -13,19 +13,31 @@ public class JogoDaVelha {
         jogo.inicio();
 
         // jogo em aberto enquanto nao tiver vencedor ou velha
-        while(!jogo.verificaVencedor() && !jogo.verificaVelha()){
-            if(jogo.rodada%2==0){
+        do {
+            if (jogo.rodada % 2 == 0) {
                 System.out.println("-> Jogador 1, escolha uma casa para marcar com 'O':");
-                linha = sn.nextInt();
-                coluna = sn.nextInt();
-                jogo.jogada('O', linha, coluna);
-            } else{
-                System.out.println("-> Jogador 2, escolha uma casa para marcar com 'X':");
-                linha = sn.nextInt();
-                coluna = sn.nextInt();
-                jogo.jogada('X', linha, coluna);
+                try {
+                    linha = sn.nextInt();
+                    coluna = sn.nextInt();
+                    jogo.jogada('O', linha, coluna);
+                } catch(java.util.InputMismatchException e){
+                    System.out.println("O valor informado é invalido");
+                    break;
+                }
+            } else {
+                try {
+                    System.out.println("-> Jogador 2, escolha uma casa para marcar com 'X':");
+                    linha = sn.nextInt();
+                    coluna = sn.nextInt();
+                    jogo.jogada('X', linha, coluna);
+                } catch(java.util.InputMismatchException e){
+                    System.out.println("O valor informado é invalido");
+                    break;
+                }
             }
-        }
+        } while(!jogo.verificaVencedor() && !jogo.verificaVelha());
+
+        sn.close();
     }
 }
 
@@ -113,7 +125,6 @@ class Jogo{
                 }else{
                     System.out.print(" | ");
                 }
-
             }
         }
         System.out.println("----------------\n");
