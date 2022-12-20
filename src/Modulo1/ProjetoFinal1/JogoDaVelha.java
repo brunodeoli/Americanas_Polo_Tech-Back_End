@@ -7,6 +7,7 @@ public class JogoDaVelha {
         Scanner sn = new Scanner(System.in);
 
         Jogo jogo = new Jogo();
+
         int linha = 0;
         int coluna = 0;
 
