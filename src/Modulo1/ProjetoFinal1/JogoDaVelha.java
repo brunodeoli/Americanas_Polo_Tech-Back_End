@@ -10,6 +10,8 @@ public class JogoDaVelha {
         int linha = 0;
         int coluna = 0;
 
+        jogo.inicio();
+
         // jogo em aberto enquanto nao tiver vencedor ou velha
         while(!jogo.verificaVencedor() && !jogo.verificaVelha()){
             if(jogo.rodada%2==0){
@@ -94,10 +96,11 @@ class Jogo{
     }
 
     public void imprimeTabuleiro(){
-        System.out.println("   RODADA "+this.rodada+"\n-------------");
+        System.out.println("=== RODADA "+this.rodada+" ===\n----------------");
+        System.out.println("    0   1   2");
         for (int i = 0; i < this.tabuleiro.length; i++) {
             Character[] linha = this.tabuleiro[i];
-            System.out.print("[ ");
+            System.out.print(i + " [ ");
             for (int j = 0; j < this.tabuleiro[i].length; j++) {
                 Character elemento = this.tabuleiro[i][j];
                 if(elemento==null){
@@ -113,6 +116,13 @@ class Jogo{
 
             }
         }
-        System.out.println("-------------\n");
+        System.out.println("----------------\n");
+    }
+
+    public void inicio(){
+        System.out.println("========= JOGO DA VELHA =========");
+        System.out.println("Marque a casa desejada, inserindo\n   primeiro a posicao da linha\n em seguida a posicao da coluna\n        separado por espaço.\n Por exemplo para casa do centro:\n               1 1");
+        System.out.println();
+        imprimeTabuleiro();
     }
 }
