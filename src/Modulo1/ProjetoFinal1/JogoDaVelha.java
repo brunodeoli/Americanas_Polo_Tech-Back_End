@@ -10,7 +10,7 @@ public class JogoDaVelha {
         int linha = 0;
         int coluna = 0;
 
-        // jogo em aberto enquanto não tiver vencedor ou velha
+        // jogo em aberto enquanto nao tiver vencedor ou velha
         while(!jogo.verificaVencedor() && !jogo.verificaVelha()){
             if(jogo.rodada%2==0){
                 System.out.println("-> Jogador 1, escolha uma casa para marcar com 'O':");
@@ -37,12 +37,12 @@ class Jogo{
             this.rodada++;
             imprimeTabuleiro();
         } else{
-            System.out.println("\n* Casa já ocupada ou inválida, jogue novamente *\n");
+            System.out.println("\n* Casa ja ocupada ou invalida, jogue novamente *\n");
         }
     }
 
-    public boolean verificaPosicao(int linha, int coluna){
-        //verifica se a casa que o jogador quer jogar esta livre e é valida
+    private boolean verificaPosicao(int linha, int coluna){
+        //verifica se a casa que o jogador quer jogar esta livre e eh valida
         boolean valida = (linha >= 0 && linha <= 2) && (coluna >= 0 && coluna <= 2);
         boolean livre = false;
         if(valida){
@@ -52,49 +52,36 @@ class Jogo{
     }
 
     public boolean verificaVencedor(){
+        //verifica diagonais
+        boolean verifica_diagonal = verificaCasasIguais(this.tabuleiro[0][0], this.tabuleiro[1][1], this.tabuleiro[2][2]);
+        boolean verifica_inversa = verificaCasasIguais(this.tabuleiro[0][2], this.tabuleiro[1][1], this.tabuleiro[2][0]);
+        if(verifica_diagonal || verifica_inversa){
+            return true;
+        }
+
+        // verifica linhas e colunas
         for (int i = 0; i < this.tabuleiro.length; i++) {
-            // verifica linha
-            boolean verifica_linha = this.tabuleiro[i][0] != null && this.tabuleiro[i][1] != null && this.tabuleiro[i][2] != null;
-            if(verifica_linha){
-                char marcacao = this.tabuleiro[i][0];
-                if ((marcacao == this.tabuleiro[i][1]) && (marcacao == this.tabuleiro[i][2])) {
-                    int jogador = marcacao == 'O' ? 1 : 2;
-                    System.out.println("JOGADOR " + jogador + " VENCEU!");
-                    return true;
-                }
-            }
-            // verifica coluna
-            boolean verifica_coluna = this.tabuleiro[0][i] != null && this.tabuleiro[1][i] != null && this.tabuleiro[2][i] != null;
-            if(verifica_coluna){
-                char marcacao = this.tabuleiro[0][i];
-                if ((marcacao == this.tabuleiro[1][i]) && (marcacao == this.tabuleiro[2][i])) {
-                    int jogador = marcacao == 'O' ? 1 : 2;
-                    System.out.println("JOGADOR " + jogador + " VENCEU!");
-                    return true;
-                }
+            boolean verifica_linha = verificaCasasIguais(this.tabuleiro[i][0], this.tabuleiro[i][1], this.tabuleiro[i][2]);
+            boolean verifica_coluna = verificaCasasIguais(this.tabuleiro[0][i], this.tabuleiro[1][i], this.tabuleiro[2][i]);
+            if(verifica_linha || verifica_coluna){
+                return true;
             }
         }
-        //verifica diagonal
-        boolean diagonal = this.tabuleiro[0][0] != null && this.tabuleiro[1][1] != null && this.tabuleiro[2][2] != null;
-        if(diagonal){
-            char marcacao = this.tabuleiro[1][1];
-            if (marcacao == this.tabuleiro[0][0] && marcacao == this.tabuleiro[2][2]) {
+
+        // retorna falso se nao encontrou vencedor
+        return false;
+    }
+
+    private boolean verificaCasasIguais(Character casa1, Character casa2, Character casa3){
+        boolean isValid = casa1 != null && casa2 != null && casa3 != null;
+        if(isValid){
+            char marcacao = casa1;
+            if (marcacao == casa2 && marcacao == casa3) {
                 int jogador = marcacao == 'O' ? 1 : 2;
                 System.out.println("JOGADOR " + jogador + " VENCEU!");
                 return true;
             }
         }
-        //verifica diagonal invertida
-        boolean diagonal_invertida = this.tabuleiro[0][2] != null && this.tabuleiro[1][1] != null && this.tabuleiro[2][0] != null;
-        if(diagonal_invertida){
-            char marcacao = this.tabuleiro[1][1];
-            if (marcacao == this.tabuleiro[0][2] && marcacao == this.tabuleiro[2][0]) {
-                int jogador = marcacao == 'O' ? 1 : 2;
-                System.out.println("JOGADOR " + jogador + " VENCEU!");
-                return true;
-            }
-        }
-        // retorna falso se não encontrou vencedor
         return false;
     }
 
