@@ -22,7 +22,7 @@ public class JogoDaVelha {
                     coluna = sn.nextInt();
                     jogo.jogada('O', linha, coluna);
                 } catch(java.util.InputMismatchException e){
-                    System.out.println("O valor informado é invalido");
+                    System.err.println("O valor informado é invalido");
                     break;
                 }
             } else {
@@ -32,7 +32,7 @@ public class JogoDaVelha {
                     coluna = sn.nextInt();
                     jogo.jogada('X', linha, coluna);
                 } catch(java.util.InputMismatchException e){
-                    System.out.println("O valor informado é invalido");
+                    System.err.println("O valor informado é invalido");
                     break;
                 }
             }
@@ -52,7 +52,7 @@ class Jogo{
             this.rodada++;
             imprimeTabuleiro();
         } else{
-            System.out.println("\n* Casa ja ocupada ou invalida, jogue novamente *\n");
+            System.err.println("\n* Casa ja ocupada ou invalida, jogue novamente *\n");
         }
     }
 
@@ -102,7 +102,7 @@ class Jogo{
 
     public boolean verificaVelha(){
         if(this.rodada == 9){
-            System.out.println("\nA PARTIDA DEU VELHA!\nSEM VENCEDOR");
+            System.err.println("A PARTIDA DEU VELHA!\nSEM VENCEDOR");
             return true;
         }
         return false;
