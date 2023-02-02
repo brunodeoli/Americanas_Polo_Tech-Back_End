@@ -1,8 +1,8 @@
-package Modulo3.Aula3.Zoologico;
+package Modulo3.Aula3e4.Zoologico;
 
-import Modulo3.Aula3.Zoologico.classes.Pardal;
-import Modulo3.Aula3.Zoologico.classes.Tilapia;
-import Modulo3.Aula3.Zoologico.classes.Vaca;
+import Modulo3.Aula3e4.Zoologico.classes.Pardal;
+import Modulo3.Aula3e4.Zoologico.classes.Tilapia;
+import Modulo3.Aula3e4.Zoologico.classes.Vaca;
 
 public class Zoologico {
     public static void main(String[] args) {

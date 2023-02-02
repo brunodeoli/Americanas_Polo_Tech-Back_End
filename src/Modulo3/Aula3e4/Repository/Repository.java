@@ -1,4 +1,4 @@
-package Modulo3.Aula3.Repository;
+package Modulo3.Aula3e4.Repository;
 
 import Modulo3.Aula1.Pessoa;
 import java.util.List;

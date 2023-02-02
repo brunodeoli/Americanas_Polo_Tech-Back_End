@@ -1,4 +1,4 @@
-package Modulo3.Aula3.Zoologico.interfaces;
+package Modulo3.Aula3e4.Zoologico.interfaces;
 
 public interface Nadador {
     default void nadar(){

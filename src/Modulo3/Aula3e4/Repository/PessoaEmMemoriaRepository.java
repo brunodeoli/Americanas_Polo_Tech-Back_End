@@ -1,10 +1,9 @@
-package Modulo3.Aula3.Repository;
+package Modulo3.Aula3e4.Repository;
 
 import Modulo3.Aula1.Pessoa;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PessoaEmMemoriaRepository implements Repository {
     private List<Pessoa> dados = new ArrayList<>();
@@ -23,6 +22,8 @@ public class PessoaEmMemoriaRepository implements Repository {
         if(consultar(pessoa.getCpf()) == null){
             throw new IllegalArgumentException("Não existe uma pessoa cadastrada com esse CPF");
         }
+        deletar(pessoa);
+        salvar(pessoa);
     }
 
     @Override
@@ -36,14 +37,26 @@ public class PessoaEmMemoriaRepository implements Repository {
 
     @Override
     public Pessoa consultar(String cpf) {
-        List<String> listaDeCpfs = dados.stream()
-                .map(Pessoa::getCpf)
-                .collect(Collectors.toList());
-        int indexCpf = (listaDeCpfs.indexOf(cpf));
-        if(indexCpf == -1){
-            throw new IllegalArgumentException("Não existe uma pessoa cadastrada com esse CPF");
+//        List<String> listaDeCpfs = dados.stream()
+//                .map(Pessoa::getCpf)
+//                .collect(Collectors.toList());
+//        int indexCpf = (listaDeCpfs.indexOf(cpf));
+//        if(indexCpf == -1){
+//            throw new IllegalArgumentException("Não existe uma pessoa cadastrada com esse CPF");
+//        }
+//        return dados.get(indexCpf);
+
+//        Optional<Pessoa> pessoa = dados.stream()
+//                .filter(p -> p.getCpf().equals(cpf))
+//                .findFirst();
+//        return pessoa.orElse(null);
+
+        for(Pessoa pessoa: dados){
+            if(pessoa.getCpf().equals(cpf)){
+                return pessoa;
+            }
         }
-        return dados.get(indexCpf);
+        return null;
     }
 
     @Override
